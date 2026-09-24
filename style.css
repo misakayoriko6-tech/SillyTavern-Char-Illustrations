@@ -1629,3 +1629,31 @@
         grid-template-columns: repeat(3, 1fr) !important;
     }
 }
+
+.ci-ai-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82em;
+    color: #ffd166;
+    background: rgba(255, 209, 102, 0.12);
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    border-radius: 6px;
+    padding: 4px 8px;
+    margin: 4px 0;
+    width: fit-content;
+}
+
+.ci-ai-spinner {
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgba(255, 209, 102, 0.3);
+    border-top-color: #ffd166;
+    border-radius: 50%;
+    animation: ci-spin 0.8s linear infinite;
+    display: inline-block;
+}
+
+@keyframes ci-spin {
+    to { transform: rotate(360deg); }
+}

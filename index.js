@@ -1544,6 +1544,30 @@ ${optionsList}
     return null;
 }
 
+// 在消息旁显示/隐藏 AI 分析状态条
+function showAIStatusBar(messageEl, text) {
+    if (!messageEl) return;
+    let bar = messageEl.querySelector('.ci-ai-status-bar');
+    if (!bar) {
+        bar = document.createElement('div');
+        bar.className = 'ci-ai-status-bar';
+        const textEl = messageEl.querySelector('.mes_text');
+        if (textEl && textEl.parentNode) {
+            textEl.parentNode.insertBefore(bar, textEl);
+        } else {
+            messageEl.prepend(bar);
+        }
+    }
+    bar.innerHTML = `<span class="ci-ai-spinner"></span>${escapeHtml(text)}`;
+    bar.style.display = 'flex';
+}
+
+function hideAIStatusBar(messageEl) {
+    if (!messageEl) return;
+    const bar = messageEl.querySelector('.ci-ai-status-bar');
+    if (bar) bar.remove();
+}
+
 function getCurrentCharId(messageEl = null) {
     const context = getContext();
     if (!context) return null;
@@ -3599,15 +3623,40 @@ async function checkAndRenderMessage(messageEl) {
     let listToDisplay = [];
 
     if (apiSettings.enabled && apiSettings.url && apiSettings.model) {
-        const arbitratedIds = await arbitrateScenario(rawMessageContent, items);
-        if (getCurrentCharId(messageEl) !== charId) return;
+		// 开始分析提示
+		showAIStatusBar(messageEl, 'AI 正在分析当前场景...');
+		toastr?.info?.('开始 AI 情境分析，请稍候...', '插图插件', { timeOut: 2000 });
 
-        if (Array.isArray(arbitratedIds)) {
-            listToDisplay = items.filter(item => arbitratedIds.includes(item.id));
-        } else {
-            return;
-        }
-    } else {
+		const t0 = performance.now();
+		const arbitratedIds = await arbitrateScenario(rawMessageContent, items);
+		const cost = ((performance.now() - t0) / 1000).toFixed(2);
+
+		// 如果角色已切换，直接清理
+		if (getCurrentCharId(messageEl) !== charId) {
+			hideAIStatusBar(messageEl);
+			return;
+		}
+
+		if (Array.isArray(arbitratedIds)) {
+			listToDisplay = items.filter(item => arbitratedIds.includes(item.id));
+
+			if (listToDisplay.length > 0) {
+				showAIStatusBar(messageEl, `AI 分析完成（${cost}s），命中 ${listToDisplay.length} 条插图`);
+				toastr?.success?.(`AI 分析完成，命中 ${listToDisplay.length} 条插图（${cost}s）`, '插图插件', { timeOut: 2500 });
+				// 稍后自动移除状态条，避免遮挡
+				setTimeout(() => hideAIStatusBar(messageEl), 2500);
+			} else {
+				showAIStatusBar(messageEl, `AI 分析完成（${cost}s），未命中插图`);
+				toastr?.info?.(`AI 分析完成，未命中插图（${cost}s）`, '插图插件', { timeOut: 2500 });
+				setTimeout(() => hideAIStatusBar(messageEl), 2500);
+			}
+		} else {
+			// 返回 null：请求失败 / 被 abort
+			hideAIStatusBar(messageEl);
+			toastr?.warning?.('AI 情境分析未返回有效结果（可能被中断或请求失败）', '插图插件', { timeOut: 3000 });
+			return;
+		}
+	} else {
         const lowerContent = rawMessageContent.toLowerCase();
         const matched = items.filter(item => {
             if (item.rules && Array.isArray(item.rules) && item.rules.length > 0) {
@@ -3727,11 +3776,17 @@ async function checkAndRenderMessage(messageEl) {
         if (imgs.length === 0) continue;
 
         if (singleImageMode) {
-            let selectedIdx = typeof item.selectedIndex === 'number' ? item.selectedIndex : 0;
-            if (selectedIdx < 0 || selectedIdx >= imgs.length) selectedIdx = 0;
+			let selectedIdx = typeof item.selectedIndex === 'number' ? item.selectedIndex : 0;
+			if (selectedIdx < 0 || selectedIdx >= imgs.length) selectedIdx = 0;
 
-            const originalSource = imgs[selectedIdx];
-            const displayUrl = toDisplayUrl(originalSource);
+			// 新增：单图模式下每次匹配随机选一张
+			// 如果该规则有多张图，则随机；只有一张时保持原样
+			if (imgs.length > 1) {
+				selectedIdx = Math.floor(Math.random() * imgs.length);
+			}
+
+			const originalSource = imgs[selectedIdx];
+			const displayUrl = toDisplayUrl(originalSource);
 
             const card = document.createElement('div');
             card.className = displayPosition === 'top_fixed' 

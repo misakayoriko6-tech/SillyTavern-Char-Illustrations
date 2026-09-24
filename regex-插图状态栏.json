@@ -1,0 +1,17 @@
+{
+    "id": "065e7daf-5593-436a-bd54-075c9d6e77d2",
+    "scriptName": "插图状态栏",
+    "findRegex": "/\\|\\$([^：\\n]+)：([\\s\\S]*?)(?=<!-- END -->|\\n\\|\\$|\\n\\|$|$)/g",
+    "replaceString": "<style>\n  .wrap { border:1px solid #3a3a3a; border-radius:8px; background:#000; padding:8px; box-shadow:0 0 12px rgba(255,255,255,0.04); margin:6px 0; }\n  details { margin:6px 0; border:1px solid #4a4a4a; border-radius:6px; background:#0a0a0a; }\n  summary { cursor:pointer; padding:9px 12px; font-size:14px; font-weight:bold; color:#d0d0d0; list-style:none; background:#111; border-radius:6px; }\n  summary:hover { color:#fff; background:#1a1a1a; }\n  details[open] > summary { color:#4da6ff; border-bottom:1px solid #555; border-radius:6px 6px 0 0; }\n  .content { padding:10px 14px; font-size:13px; line-height:1.6; color:#e0e0e0; white-space:pre-wrap; word-break:break-all; border-top:1px solid #444; }\n</style>\n<div class=\"wrap\">\n<details open>\n<summary>$1</summary>\n<div class=\"content\">$2</div>\n</details>\n</div>",
+    "trimStrings": [],
+    "placement": [
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
