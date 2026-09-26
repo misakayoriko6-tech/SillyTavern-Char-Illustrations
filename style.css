@@ -1,0 +1,1831 @@
+/* ==================== 0. 移动端与抽屉规范适配 ==================== */
+#char-illustrations-drawer {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.ci-custom-drawer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ci-custom-drawer-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 6px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ci-custom-drawer-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(72, 202, 228, 0.4);
+}
+
+.ci-drawer-icon {
+    font-size: 1.1em;
+    color: #ffd166;
+    transition: transform 0.2s ease;
+}
+
+.ci-custom-drawer-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.ci-panel,
+.ci-panel * {
+    box-sizing: border-box !important;
+}
+
+.ci-api-btn-group,
+.ci-header-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    width: 100% !important;
+}
+
+.ci-btn-standard,
+.ci-mini-btn,
+.ci-upload-box .menu_button {
+    white-space: normal !important;
+    word-break: break-word !important;
+    min-width: fit-content !important;
+    writing-mode: horizontal-tb !important;
+}
+
+/* ==================== 1. 聊天框内与气泡周围的插图容器 ==================== */
+.char-illustration-container {
+    margin: 8px 0 6px 0;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ci-carousel-root {
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    padding: 0 36px;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+/* 折叠隐藏状态 */
+.ci-carousel-root.ci-collapsed {
+    padding: 6px 12px !important;
+    background: rgba(18, 18, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px;
+}
+
+.ci-carousel-root.ci-collapsed .ci-carousel-wrapper,
+.ci-carousel-root.ci-collapsed .ci-carousel-footer,
+.ci-carousel-root.ci-collapsed .ci-scroll-wrapper {
+    display: none !important;
+}
+
+.ci-collapsed-hint-text {
+    display: none;
+    font-size: 0.78em;
+    color: #48cae4;
+    user-select: none;
+}
+
+.ci-carousel-root.ci-collapsed .ci-collapsed-hint-text {
+    display: inline-block;
+}
+
+.char-illustration-expand-btn {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: rgba(72, 202, 228, 0.45);
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    user-select: none;
+    line-height: 1;
+}
+
+.char-illustration-expand-btn:hover {
+    background: rgba(72, 202, 228, 0.9);
+    transform: scale(1.1);
+}
+
+.ci-carousel-root.ci-collapsed .char-illustration-expand-btn {
+    display: flex !important;
+}
+
+.ci-carousel-wrapper {
+    position: relative;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: visible !important;
+}
+
+.ci-carousel-viewport {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.ci-carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ci-carousel-slide {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.ci-carousel-slide.active {
+    display: inline-flex !important;
+}
+
+.char-illustration-img {
+    max-width: 95%;
+    max-height: 480px;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+    object-fit: contain;
+    object-position: top center;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout paint;
+}
+
+.char-illustration-img:hover {
+    transform: scale(1.01) translateZ(0);
+    filter: brightness(1.03);
+}
+
+/* ==================== 左右切换按键 ==================== */
+.ci-carousel-arrow {
+    position: absolute;
+    top: 0px;
+    transform: none;
+    z-index: 35;
+    width: 26px;
+    height: 34px;
+    border-radius: 6px;
+    background: rgba(18, 18, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #f3f4f6;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    user-select: none;
+    padding: 0;
+}
+
+.ci-carousel-wrapper:hover .ci-carousel-arrow,
+.ci-scroll-wrapper:hover .ci-carousel-arrow {
+    opacity: 1;
+}
+
+.ci-carousel-arrow:hover {
+    opacity: 1 !important;
+    background: rgba(42, 157, 143, 0.95);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.06);
+}
+
+.ci-carousel-arrow:active {
+    transform: scale(0.95);
+}
+
+.ci-carousel-arrow.ci-arrow-prev {
+    left: -32px;
+}
+
+.ci-carousel-arrow.ci-arrow-next {
+    right: -32px;
+}
+
+.ci-carousel-arrow:disabled {
+    opacity: 0.15 !important;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==================== 竖排标签与更换按钮 ==================== */
+.ci-side-info-container {
+    position: absolute;
+    left: -32px;
+    top: 40px;
+    z-index: 35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+.ci-side-group-tag {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 2px;
+    font-size: 0.72em;
+    color: #48cae4;
+    background: rgba(18, 24, 32, 0.9);
+    border: 1px solid rgba(72, 202, 228, 0.4);
+    border-radius: 5px;
+    padding: 6px 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    cursor: default;
+    min-width: 24px;
+    text-align: center;
+}
+
+.ci-side-name-btn {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 2px;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #ffd166;
+    background: rgba(20, 20, 28, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    padding: 8px 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    cursor: pointer;
+    min-width: 26px;
+    text-align: center;
+    transition: all 0.18s ease;
+}
+
+.ci-side-name-btn:hover {
+    background: rgba(42, 157, 143, 0.95);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.ci-side-name-btn:active {
+    transform: scale(0.95);
+}
+
+.ci-side-right-container {
+    position: absolute;
+    right: -32px;
+    top: 40px;
+    z-index: 35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+.ci-side-switch-btn {
+    position: static;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 2px;
+    padding: 8px 4px !important;
+    font-size: 0.72em;
+    color: #ffd166;
+    background: rgba(20, 20, 28, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.18s ease;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+}
+
+.ci-side-switch-btn:hover {
+    background: rgba(42, 157, 143, 0.95);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.ci-side-switch-btn:active {
+    transform: scale(0.95);
+}
+
+.ci-side-badge {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 1px;
+    font-size: 0.7em;
+    color: #ffd166;
+    background: rgba(18, 20, 28, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 6px 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-weight: 500;
+    min-width: 26px;
+    text-align: center;
+}
+
+.ci-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 6px;
+    width: 100%;
+}
+
+.ci-carousel-dots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ci-carousel-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.ci-carousel-dot.active {
+    width: 14px;
+    border-radius: 3px;
+    background: #2a9d8f;
+}
+
+/* ==================== 顶部固定悬浮模式 ==================== */
+.ci-top-fixed-container {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 95vw;
+    width: auto;
+    pointer-events: none;
+}
+
+.ci-top-fixed-container .ci-carousel-root {
+    pointer-events: auto;
+    max-width: 95vw;
+}
+
+.ci-top-fixed-container .ci-scroll-root {
+    width: 90vw !important;
+    max-width: 90vw !important;
+}
+
+.ci-top-fixed-card {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+    box-sizing: border-box;
+}
+
+.ci-top-fixed-card.active {
+    display: inline-flex !important;
+}
+
+.ci-top-fixed-inner {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(15, 15, 20, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+    animation: ciFadeInDown 0.25s ease-out;
+    max-width: 95vw;
+}
+
+@keyframes ciFadeInDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ci-top-fixed-img {
+    max-height: 450px;
+    max-width: 95vw;
+    border-radius: 5px;
+    object-fit: contain;
+    object-position: top center;
+    display: block;
+    cursor: pointer;
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout paint;
+}
+
+.ci-top-fixed-img.ci-compact-size {
+    max-height: 280px;
+    max-width: 85vw;
+}
+
+/* ==================== 无极左右滑动浏览容器 ==================== */
+.ci-scroll-root {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+}
+
+.ci-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.ci-scroll-viewport {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(72, 202, 228, 0.5) rgba(0, 0, 0, 0.2);
+    padding: 10px 4px;
+    cursor: grab;
+    user-select: none;
+}
+
+.ci-scroll-viewport.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.ci-scroll-viewport::-webkit-scrollbar {
+    height: 5px;
+}
+
+.ci-scroll-viewport::-webkit-scrollbar-thumb {
+    background: rgba(72, 202, 228, 0.4);
+    border-radius: 4px;
+}
+
+.ci-scroll-track {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    width: max-content;
+    padding: 0 10px;
+}
+
+.ci-scroll-slide {
+    display: inline-flex !important;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease, border-color 0.2s ease;
+    opacity: 0.68;
+    transform: scale(0.96);
+    flex-shrink: 0;
+}
+
+.ci-scroll-slide.ci-focused {
+    opacity: 1;
+    transform: scale(1.02);
+    border-color: rgba(72, 202, 228, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.75), 0 0 14px rgba(72, 202, 228, 0.25);
+}
+
+.ci-scroll-slide .char-illustration-img {
+    max-height: 400px;
+}
+
+.ci-scroll-slide .ci-top-fixed-img {
+    max-height: 380px;
+}
+
+.ci-scroll-slide .ci-top-fixed-img.ci-compact-size {
+    max-height: 240px;
+}
+
+/* ==================== 浮动控制按键 ==================== */
+.char-illustration-collapse-btn {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    width: 24px;
+    height: 24px;
+    background: rgba(72, 202, 228, 0.45);
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0.65;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    z-index: 40;
+    user-select: none;
+    line-height: 1;
+}
+
+.ci-top-size-toggle-btn {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    background: rgba(42, 157, 143, 0.45);
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0.65;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    z-index: 40;
+    user-select: none;
+    line-height: 1;
+}
+
+/* 无极滑动模式下，窗口固定左下角与右下角定位 */
+.ci-scroll-wrapper > .char-illustration-collapse-btn {
+    left: 12px;
+    bottom: 14px;
+}
+
+.ci-scroll-wrapper > .ci-top-size-toggle-btn {
+    right: 12px;
+    bottom: 14px;
+}
+
+.char-illustration-collapse-btn:hover {
+    background: rgba(72, 202, 228, 0.9);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.ci-top-size-toggle-btn:hover {
+    background: rgba(42, 157, 143, 0.9);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.ci-top-fixed-inner:hover .ci-top-size-toggle-btn,
+.char-illustration-card:hover .char-illustration-collapse-btn,
+.ci-top-fixed-inner:hover .char-illustration-collapse-btn,
+.ci-scroll-wrapper:hover .char-illustration-collapse-btn,
+.ci-scroll-wrapper:hover .ci-top-size-toggle-btn {
+    opacity: 0.9;
+}
+
+/* ==================== 分组管理标签栏与文件夹折叠结构 ==================== */
+.ci-group-tabs-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 2px;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+.ci-group-tabs-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.ci-group-tab-item {
+    font-size: 0.78em;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ddd;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    transition: all 0.15s ease;
+}
+
+.ci-group-tab-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ci-group-tab-item.active {
+    background: #2a9d8f;
+    border-color: #2a9d8f;
+    color: #fff;
+    font-weight: bold;
+}
+
+.ci-folder-block {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    overflow: visible !important;
+    margin-bottom: 8px;
+    transition: border-color 0.2s ease;
+}
+
+.ci-folder-block:hover {
+    border-color: rgba(72, 202, 228, 0.4);
+}
+
+.ci-folder-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    user-select: none;
+    gap: 8px;
+    transition: background 0.15s ease;
+}
+
+.ci-folder-header:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.ci-folder-title-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.ci-folder-arrow {
+    font-size: 11px;
+    color: #48cae4;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.ci-folder-block.collapsed .ci-folder-arrow {
+    transform: rotate(-90deg);
+}
+
+.ci-folder-name {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #ffd166;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+}
+
+.ci-folder-count-badge {
+    font-size: 0.72em;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background: rgba(72, 202, 228, 0.15);
+    border: 1px solid rgba(72, 202, 228, 0.3);
+    color: #48cae4;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ci-folder-status-tag {
+    font-size: 0.75em;
+    opacity: 0.75;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ci-folder-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: visible !important;
+}
+
+.ci-folder-block.collapsed .ci-folder-body {
+    display: none !important;
+}
+
+.ci-folder-controls-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.ci-folder-action-text {
+    font-size: 0.76em;
+    color: #48cae4;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.85;
+}
+
+.ci-folder-action-text:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.ci-group-badge-tag {
+    font-size: 0.72em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(72, 202, 228, 0.15);
+    border: 1px solid rgba(72, 202, 228, 0.3);
+    color: #48cae4;
+    white-space: nowrap;
+}
+
+.ci-move-group-btn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #48cae4 !important;
+    padding: 2px 6px !important;
+    font-size: 0.75em !important;
+    border-radius: 3px !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ci-group-manage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.ci-group-manage-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+.ci-group-manage-input {
+    flex: 1;
+    font-size: 0.85em !important;
+    padding: 3px 6px !important;
+    color: #ffd166 !important;
+}
+
+/* ==================== 模态弹窗规范 ==================== */
+.ci-picker-modal,
+.ci-manage-modal,
+.ci-confirm-modal,
+.ci-progress-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 1000000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    box-sizing: border-box !important;
+    touch-action: auto !important;
+}
+
+.ci-picker-modal:not(.active),
+.ci-manage-modal:not(.active),
+.ci-progress-modal:not(.active) {
+    display: none !important;
+}
+
+.ci-picker-backdrop,
+.ci-manage-backdrop {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: auto;
+}
+
+.ci-picker-dialog,
+.ci-manage-dialog,
+.ci-confirm-content,
+.ci-progress-dialog {
+    position: relative;
+    background: #1e1e24 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85) !important;
+    z-index: 2 !important;
+    pointer-events: auto !important;
+    animation: ciDialogFade 0.18s ease-out;
+}
+
+.ci-picker-dialog {
+    width: 90%;
+    max-width: 580px;
+    max-height: 82vh;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ci-manage-dialog {
+    width: 92%;
+    max-width: 650px;
+    max-height: 85vh;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ci-confirm-content {
+    max-width: 440px !important;
+    width: 90% !important;
+    padding: 20px 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+}
+
+.ci-progress-dialog {
+    padding: 20px 24px;
+    width: 90%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@keyframes ciDialogFade {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.ci-picker-header,
+.ci-manage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #ffd166;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.ci-picker-close,
+.ci-manage-close {
+    cursor: pointer;
+    font-size: 1.4em;
+    line-height: 1;
+    color: #aaa;
+    transition: color 0.2s;
+}
+
+.ci-picker-close:hover,
+.ci-manage-close:hover {
+    color: #fff;
+}
+
+.ci-picker-hint {
+    font-size: 0.84em;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.ci-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding: 6px 2px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ci-picker-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.ci-picker-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #2a9d8f;
+}
+
+.ci-picker-card.active {
+    border-color: #2a9d8f;
+    background: rgba(42, 157, 143, 0.22);
+    box-shadow: 0 0 10px rgba(42, 157, 143, 0.4);
+}
+
+.ci-picker-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #0d0d10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ci-picker-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    pointer-events: none;
+    display: block;
+}
+
+.ci-picker-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #2a9d8f;
+    color: #fff;
+    font-size: 0.68em;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.ci-picker-name {
+    margin-top: 6px;
+    font-size: 0.82em;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffd166;
+    font-weight: 500;
+}
+
+/* ==================== 扩展设置面板 ==================== */
+.ci-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 6px 0;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.ci-api-config-box {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.ci-api-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.ci-api-row label {
+    font-size: 0.82em;
+    opacity: 0.85;
+}
+
+.ci-api-btn-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.ci-btn-standard {
+    padding: 8px 12px !important;
+    font-size: 0.85em !important;
+    cursor: pointer !important;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.ci-status-box {
+    font-size: 0.82em;
+    line-height: 1.4;
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    display: none;
+}
+
+.ci-upload-box {
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.ci-rule-hint {
+    font-size: 0.78em;
+    line-height: 1.4;
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: rgba(42, 157, 143, 0.15);
+    border: 1px solid rgba(42, 157, 143, 0.3);
+    color: #e0e0e0;
+}
+
+.ci-rule-hint code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #ffd166;
+}
+
+.ci-preview-container {
+    max-height: 140px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.ci-preview-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.ci-list-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ci-list-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+}
+
+.ci-header-actions {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+    gap: 6px !important;
+    width: 100% !important;
+}
+
+.ci-mini-btn {
+    padding: 6px 6px !important;
+    font-size: 0.82em !important;
+    line-height: 1.2 !important;
+    border-radius: 4px !important;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ci-btn-accent {
+    background: #2a9d8f !important;
+    color: #fff !important;
+}
+
+.ci-btn-danger {
+    background: #e63946 !important;
+    color: #fff !important;
+}
+
+.ci-search-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.ci-search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.ci-search-input-wrapper input {
+    width: 100% !important;
+    padding-right: 26px !important;
+    font-size: 0.85em !important;
+}
+
+.ci-search-clear {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.ci-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: none !important;
+    height: auto !important;
+    overflow-y: visible !important;
+    padding-right: 2px;
+    width: 100%;
+    touch-action: pan-y !important;
+}
+
+/* ==================== 规则卡片 ==================== */
+.ci-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    transform: translateZ(0);
+    content-visibility: auto;
+    contain-intrinsic-size: 0 74px;
+}
+
+.ci-thumb-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.ci-thumb-preview-wrap {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.ci-thumb-main {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    image-rendering: auto;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.03);
+    transition: opacity 0.2s ease;
+}
+
+.ci-thumb-count-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffd166;
+    font-size: 10px;
+    text-align: center;
+    line-height: 14px;
+    pointer-events: none;
+}
+
+.ci-order-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.ci-order-btn {
+    padding: 2px 6px !important;
+    font-size: 0.75em !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 3px !important;
+    color: #fff !important;
+    cursor: pointer;
+    line-height: 1.1;
+}
+
+.ci-card-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ci-card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}
+
+.ci-manage-btn {
+    background: rgba(42, 157, 143, 0.25) !important;
+    border: 1px solid #2a9d8f !important;
+    color: #ffd166 !important;
+    padding: 2px 8px !important;
+    font-size: 0.78em !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ci-edit-input {
+    width: 100% !important;
+    font-size: 0.85em !important;
+    padding: 4px 6px !important;
+    color: #ffd166 !important;
+}
+
+.ci-card-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2px;
+    flex-wrap: wrap;
+}
+
+.ci-save-edit-btn {
+    background: #2a9d8f !important;
+    color: #fff !important;
+    padding: 3px 8px !important;
+    font-size: 0.8em !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+}
+
+.ci-del-btn {
+    background: #e63946 !important;
+    color: #fff !important;
+    padding: 3px 8px !important;
+    font-size: 0.8em !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+}
+
+/* ==================== 单规则多图管理弹窗排版 ==================== */
+.ci-manage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding: 6px 2px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ci-manage-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    position: relative;
+}
+
+.ci-manage-item.is-selected {
+    border-color: #2a9d8f;
+    background: rgba(42, 157, 143, 0.15);
+}
+
+.ci-manage-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #111;
+}
+
+.ci-manage-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    cursor: pointer;
+    display: block;
+}
+
+.ci-manage-order-bar {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 15, 20, 0.85);
+    border-radius: 4px;
+    padding: 2px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 2;
+}
+
+.ci-order-mini-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 3px !important;
+    color: #fff !important;
+    cursor: pointer;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    padding: 2px 6px !important;
+}
+
+.ci-order-mini-btn:disabled {
+    opacity: 0.25 !important;
+    cursor: not-allowed !important;
+}
+
+.ci-img-index-badge {
+    font-size: 10px;
+    color: #ffd166;
+    font-weight: bold;
+    user-select: none;
+}
+
+.ci-manage-name-input {
+    width: 100% !important;
+    font-size: 0.78em !important;
+    padding: 3px 4px !important;
+    text-align: center;
+    border-radius: 4px !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #e0e0e0 !important;
+}
+
+.ci-manage-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    gap: 4px;
+}
+
+.ci-set-default-btn {
+    font-size: 0.72em !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ddd !important;
+}
+
+.ci-manage-item.is-selected .ci-set-default-btn {
+    background: #2a9d8f !important;
+    border-color: #2a9d8f !important;
+    color: #fff !important;
+}
+
+.ci-manage-del-btn {
+    color: #e63946;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 4px;
+}
+
+.ci-manage-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* ==================== 全屏图片灯箱 (纯净渲染·杜绝抖动) ==================== */
+.ci-lightbox {
+    position: fixed !important;
+    top: 0 !important; left: 0 !important;
+    width: 100vw !important; height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 1000000 !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    touch-action: none !important;
+    background: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.ci-lightbox.active {
+    display: flex !important;
+}
+
+.ci-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    pointer-events: auto;
+}
+
+.ci-lightbox-content {
+    position: relative;
+    z-index: 2;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none !important;
+}
+
+.ci-lightbox-content:active {
+    cursor: grabbing;
+}
+
+#ci-lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    pointer-events: auto;
+    will-change: transform;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: none !important;
+}
+
+.ci-lightbox-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    z-index: 3;
+    font-size: 32px;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.75;
+    padding: 8px;
+    user-select: none;
+}
+
+.ci-lightbox-hint {
+    position: absolute;
+    bottom: 20px;
+    z-index: 3;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 14px;
+    border-radius: 20px;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ==================== 二次确认与操作按钮 ==================== */
+.ci-confirm-content h3 {
+    margin: 0 !important;
+    color: #ff4d4f !important;
+    font-size: 1.15em !important;
+    font-weight: bold !important;
+}
+
+.ci-confirm-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 8px !important;
+    width: 100% !important;
+}
+
+.ci-confirm-actions button {
+    white-space: nowrap !important;
+    padding: 8px 16px !important;
+    font-size: 0.9em !important;
+    cursor: pointer !important;
+    border-radius: 6px !important;
+}
+
+/* ==================== 进度条规范 ==================== */
+.ci-progress-title {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #ffd166;
+}
+
+.ci-progress-bar-bg {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.ci-progress-bar-fill {
+    width: 0%;
+    height: 10px;
+    background: linear-gradient(90deg, #2a9d8f, #e76f51);
+    border-radius: 5px;
+    transition: width 0.12s ease-out;
+}
+
+.ci-progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82em;
+    color: #bbb;
+}
+
+/* ==================== 移动端适配 (< 768px) ==================== */
+@media (max-width: 768px) {
+    #char-illustrations-drawer {
+        width: 100% !important;
+    }
+
+    .ci-picker-modal,
+    .ci-manage-modal,
+    .ci-progress-modal,
+    .ci-confirm-modal {
+        align-items: flex-start !important;
+        padding-top: max(env(safe-area-inset-top), 20px) !important;
+        padding-bottom: max(env(safe-area-inset-bottom), 16px) !important;
+    }
+
+    .ci-confirm-content {
+        width: 95% !important;
+        max-width: 95vw !important;
+        padding: 16px 14px !important;
+    }
+
+    .ci-confirm-actions {
+        gap: 8px !important;
+    }
+
+    .ci-confirm-actions button {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    .ci-picker-dialog,
+    .ci-manage-dialog,
+    .ci-progress-dialog {
+        width: 95% !important;
+        max-width: 95vw !important;
+        max-height: calc(100dvh - 40px) !important;
+        padding: 12px 14px !important;
+        gap: 10px !important;
+    }
+
+    .ci-manage-grid,
+    .ci-picker-grid {
+        grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)) !important;
+        max-height: 50dvh !important;
+    }
+
+    .ci-top-fixed-container {
+        top: 36px;
+        max-width: 96vw;
+    }
+
+    .ci-top-fixed-container .ci-scroll-root {
+        width: 96vw !important;
+        max-width: 96vw !important;
+    }
+
+    .ci-top-fixed-inner {
+        max-width: 96vw;
+    }
+
+    .ci-top-fixed-img {
+        max-height: 320px;
+        max-width: 95vw;
+    }
+
+    .ci-top-fixed-img.ci-compact-size {
+        max-height: 200px;
+        max-width: 90vw;
+    }
+
+    .char-illustration-img {
+        max-height: 340px;
+    }
+
+    .ci-carousel-root {
+        padding: 0 30px;
+    }
+
+    .ci-scroll-root {
+        padding: 0 24px !important;
+    }
+
+    .ci-scroll-slide .char-illustration-img {
+        max-height: 300px;
+    }
+
+    .ci-scroll-wrapper > .char-illustration-collapse-btn {
+        left: 8px;
+        bottom: 10px;
+    }
+
+    .ci-scroll-wrapper > .ci-top-size-toggle-btn {
+        right: 8px;
+        bottom: 10px;
+    }
+
+    .ci-carousel-arrow {
+        width: 24px;
+        height: 30px;
+        font-size: 12px;
+        top: 0px;
+    }
+
+    .ci-carousel-arrow.ci-arrow-prev {
+        left: -28px;
+    }
+
+    .ci-carousel-arrow.ci-arrow-next {
+        right: -28px;
+    }
+
+    .ci-side-info-container {
+        left: -28px;
+        top: 34px;
+    }
+
+    .ci-side-group-tag {
+        min-width: 22px;
+        font-size: 0.68em;
+        padding: 5px 2px;
+    }
+
+    .ci-side-name-btn {
+        min-width: 24px;
+        font-size: 0.7em;
+        padding: 6px 3px !important;
+    }
+
+    .ci-side-right-container {
+        right: -28px;
+        top: 34px;
+    }
+
+    .ci-side-switch-btn,
+    .ci-side-badge {
+        min-width: 24px;
+        font-size: 0.7em;
+        padding: 6px 3px !important;
+    }
+
+    .ci-header-actions {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
